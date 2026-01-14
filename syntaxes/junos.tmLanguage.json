@@ -1,0 +1,87 @@
+{
+  "scopeName": "source.junos",
+  "patterns": [
+    {
+      "comment": "コメント (# ... or /* ... */)",
+      "name": "comment.line.number-sign.junos",
+      "match": "^\\s*#.*$"
+    },
+    {
+      "name": "comment.block.junos",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "comment": "文字列",
+      "name": "string.quoted.double.junos",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.junos",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "comment": "操作コマンド (set, delete, deactivate...)",
+      "name": "keyword.operator.new.junos",
+      "match": "\\b(set|delete|edit|deactivate|activate|rename|copy|replace|insert|protect|unprotect)\\b"
+    },
+    {
+      "comment": "ナビゲーション/システムコマンド (commit, rollback...)",
+      "name": "keyword.control.system.junos",
+      "match": "\\b(top|up|exit|commit|rollback|run|quit|load|save|show)\\b"
+    },
+    {
+      "comment": "トップレベル階層・主要セクション",
+      "name": "entity.name.section.junos",
+      "match": "\\b(groups|system|interfaces|snmp|routing-options|protocols|policy-options|firewall|vlans|security|access|accounting-options|class-of-service|services|forwarding-options|routing-instances)\\b"
+    },
+    {
+      "comment": "論理演算子・ポリシーアクション",
+      "name": "keyword.control.flow.junos",
+      "match": "\\b(accept|reject|discard|next|term|from|then|match|permit|deny)\\b"
+    },
+    {
+      "comment": "プロトコル・技術名",
+      "name": "constant.language.protocol.junos",
+      "match": "\\b(bgp|ospf|ospf3|isis|mpls|rsvp|ldp|bfd|vrrp|stp|rstp|mstp|dot1x|inet|inet6|iso|ethernet-switching)\\b"
+    },
+    {
+      "comment": "インターフェース名 (ge-0/0/0, ae0, lo0, irb.100 etc)",
+      "name": "variable.parameter.interface.junos",
+      "match": "\\b([xgf]e|et|so|at)-\\d+/\\d+/\\d+(\\.\\d+)?\\b|\\b(lo|fxp|me|vlan|irb|ae|em|reth)\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "comment": "IPv4アドレス (CIDR対応)",
+      "name": "constant.numeric.ip-address.ipv4.junos",
+      "match": "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?:/\\d{1,2})?\\b"
+    },
+    {
+      "comment": "IPv6アドレス",
+      "name": "constant.numeric.ip-address.ipv6.junos",
+      "match": "\\b([0-9a-fA-F]{1,4}:){1,7}[0-9a-fA-F]{1,4}(/\\d{1,3})?\\b|\\b::\\b"
+    },
+    {
+      "comment": "MACアドレス (00:11:22... or 0011.2233...)",
+      "name": "constant.numeric.mac-address.junos",
+      "match": "\\b([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}\\b|\\b[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\.[0-9a-fA-F]{4}\\b"
+    },
+    {
+      "comment": "特定の定数・ブール値",
+      "name": "constant.language.boolean.junos",
+      "match": "\\b(true|false|enable|disable|input|output|both|any|all)\\b"
+    },
+    {
+      "comment": "重要な設定オブジェクト (unit, family, neighbor, peer-as)",
+      "name": "support.type.property-name.junos",
+      "match": "\\b(unit|family|neighbor|peer-as|local-as|cluster|apply-groups|apply-groups-except|description|address)\\b"
+    },
+    {
+      "comment": "数値",
+      "name": "constant.numeric.decimal.junos",
+      "match": "\\b\\d+\\b"
+    }
+  ]
+}

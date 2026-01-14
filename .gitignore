@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build Output
+out/
+dist/
+build/
+
+# Extension packages
+*.vsix
+
+# VS Code specific
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+.history/
+
+# Testing
+.vscode-test/
+
+# Logs
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# TypeScript definition for bundle
+src/extension.js
+src/extension.js.map
